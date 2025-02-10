@@ -1,36 +1,41 @@
-variable "instance_alias" {
+variable "aws_region" {
+  description = "The AWS region to deploy resources"
   type        = string
-  description = "Alias name of the instance"
+  default     = "us-east-1"
 }
 
-variable "identity_management_type" {
+variable "aws_profile" {
+  description = "AWS CLI profile for authentication"
   type        = string
-  description = "Identity management type. Accepted Values: SAML, CONNECT_MANAGED, EXISTING_DIRECTORY"
+  default     = "default"
 }
 
-variable "contact_flow_type" {
+variable "pinpoint_name" {
+  description = "Name of the Pinpoint application"
   type        = string
-  description = "Type of contact flow"
-  default     = "CONTACT_FLOW"
 }
 
-variable "common_name" {
+variable "sms_sender_id" {
+  description = "Sender ID for SMS messages"
   type        = string
-  description = "A common name of the Amazon Connect resources"
+  default     = null
 }
 
-variable "lambda_function_arn" {
-  type        = string
-  description = "ARN of the lambda function for association with connect instance"
-}
-
-variable "time_zone" {
-  type        = string
-  description = "Time zone for hours of operation"
-  default     = "EST"
-}
-
-# variable "phone_number" {
+# variable "sms_short_code" {
+#   description = "Short code for sending SMS messages. Must be pre-approved."
 #   type        = string
-#   description = "Phone number to claim for the contact center"
+# }
+
+
+
+# variable "sms_origination_number" {
+#   description = "Origination number for SMS messages"
+#   type        = string
+#   default     = null
+# }
+
+# variable "sms_message_type" {
+#   description = "Type of SMS message (TRANSACTIONAL or PROMOTIONAL)"
+#   type        = string
+#   default     = "TRANSACTIONAL"
 # }
